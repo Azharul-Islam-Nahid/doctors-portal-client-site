@@ -38,9 +38,9 @@ const MyAppointment = () => {
                     <tbody>
                         {
                             bookings.map((booking, i) => <tr
-                                key={i + 1}
+                                key={booking?._id}
                                 className="hover">
-                                <th>{i}</th>
+                                <th>{i + 1}</th>
                                 <td>{booking?.patient}</td>
                                 <td>{booking?.treatment}</td>
                                 <td>{booking?.appointmentDate}</td>
