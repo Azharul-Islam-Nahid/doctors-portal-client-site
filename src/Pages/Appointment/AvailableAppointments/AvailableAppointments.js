@@ -7,13 +7,15 @@ import AppointmentOption from './AppointmentOption';
 
 const AvailableAppointments = ({ selectedDate }) => {
 
+
     const [treatment, setTreatment] = useState(null);
+
     const date = format(selectedDate, 'PP');
 
     const { data: appointmentOptions = [], refetch, isLoading } = useQuery({
         queryKey: ['appointmentOptions', date],
         queryFn: async () => {
-            const res = await fetch(`http://localhost:5000/getAppointmentOptions?date=${date}`);
+            const res = await fetch(`https://doctors-portal-server-site.vercel.app/getAppointmentOptions?date=${date}`);
             const data = await res.json();
             return data;
         }
